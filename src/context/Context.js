@@ -19,40 +19,24 @@ fastDelivery: faker.datatype.boolean(),
 ratings: faker.helpers.arrayElement([1,2,3,4,5])
 
 
-
-
-
-
 }));
 
-const [state, dispatch] = useReducer(cartReducer,{
-    products: products,
-    cart: [],})
+const [state,dispatch] = useReducer(cartReducer,{products:products,cart:[],});
 
-const [productState, productDispatch] = useReducer(productReducer, 
-  
-  {
-byStock: false,
-byFastDelivery: false,
-byRating:0,
-searchQuery: "",
-
-
-
-  });
-
-  return <Cart.Provider value={{state,dispatch}}>
-  {children}
-  
-  </Cart.Provider>
-   
-    return useContext(Cart)
-  };
-  
+const [productState, productDispatch]= useReducer(productReducer,{
+  byStock: false,
+  byFastDelivery: false,
+  byRating:0,
+  searchQuery: "",
+});
+return <Cart.Provider value={{state,dispatch}}>
+{children}
+</Cart.Provider>
+return useContext(Cart)
+};
 
 
-export default Context
-export const CartState=()=> {
-    return useContext (Cart)
-
+export default Context;
+export const CartState=()=>{
+  return useContext(Cart)
 }

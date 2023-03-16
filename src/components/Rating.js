@@ -15,7 +15,7 @@ const Rating = ({rating, onClick,style}) => {
         </span>
     ))}
     </>
-  )
-};
+    )};
+  
 
 export default Rating
